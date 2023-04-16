@@ -6,12 +6,12 @@ import numpy as np
 
 class Capturer:
     def __init__(self, args):
-        self.__gain = 2
-        self.__peak_width = 50
-        self.__peak_threshold = 20
-        self.__savitzky_golay_filter = 7
-        self.__hold_peaks = False
-        self.__pause = False
+        self.__gain = constants.GAIN
+        self.__peak_width = constants.PEAK_WIDTH
+        self.__peak_threshold = constants.PEAK_THRESHOLD
+        self.__savitzky_golay_filter = constants.SAVITZKY_GOLAY_FILTER
+        self.__hold_peaks = constants.HOLD_PEAKS
+        self.__pause = constants.PAUSE
         self.__camera = None
         if args.source == constants.COMMAND_PI_CAMERA:
             from cameras.piCamera import PiCamera
