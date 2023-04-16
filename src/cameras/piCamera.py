@@ -11,7 +11,7 @@ from pprint import pprint
 
 
 class PiCamera(camera.Camera):
-    def __init__(self, width: int, height: int):
+    def __init__(self, width: int, height: int, gain: int):
         self.__camera = Picamera2()
         # need to spend more time at: https://datasheets.raspberrypi.com/camera/picamera2-manual.pdf
         # but this will do for now!
@@ -27,7 +27,7 @@ class PiCamera(camera.Camera):
             controls={
                 "NoiseReductionMode": controls.draft.NoiseReductionModeEnum.Fast,
                 "FrameDurationLimits": (33333, 33333),
-                "AnalogueGain": 10.0
+                "AnalogueGain": float(gain)
             })
         pprint(video_config["controls"])
         self.__camera.configure(video_config)
